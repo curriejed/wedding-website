@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Website</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <h1>Jed’s Website</h1>
+      <p>Welcome to my corner of the internet.</p>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section id="about" class="card">
+        <h2>About</h2>
+        <p>
+          Write a short intro about yourself here. What do you do? What are you into?
+        </p>
+      </section>
+
+      <section id="projects" class="card">
+        <h2>Projects</h2>
+        <ul>
+          <li>Project One – what it is, why it’s cool.</li>
+          <li>Project Two – what you learned building it. I don't know man</li>
+          <li>Project Three – link coming soon.</li>
+        </ul>
+      </section>
+
+      <section id="contact" class="card">
+        <h2>Contact</h2>
+        <p>Email me at: <a href="mailto:you@example.com">you@example.com</a></p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Jed Currie</p>
+    </footer>
+
+    <script>
+      // auto-update year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

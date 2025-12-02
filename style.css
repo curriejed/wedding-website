@@ -1,0 +1,63 @@
+/* Simple clean styling */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  background: #0f1115;
+  color: #e6e6e6;
+  line-height: 1.6;
+}
+
+.site-header {
+  padding: 48px 20px;
+  text-align: center;
+  background: #151922;
+  border-bottom: 1px solid #232838;
+}
+
+.site-header h1 {
+  margin: 0 0 8px;
+  font-size: 2.4rem;
+}
+
+.nav {
+  margin-top: 16px;
+}
+
+.nav a {
+  color: #9bb7ff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 600;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px 60px;
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  background: #151922;
+  border: 1px solid #232838;
+  border-radius: 14px;
+  padding: 18px 18px;
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: #aaa;
+  border-top: 1px solid #232838;
+}
