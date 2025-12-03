@@ -2,25 +2,37 @@
   <h2>RSVP</h2>
   <p>Please RSVP by <strong>[insert date]</strong>. We can’t wait to celebrate with you!</p>
 
+  
   <form id="rsvpForm" class="rsvp-form">
-    <label>
-      Your name
-      <input type="text" name="name" required />
+  <div class="form-grid">
+    <label class="form-field">
+      <span class="label-text">Your name</span>
+      <input type="text" name="name" placeholder="Full name" required />
     </label>
 
-    <label>
-      Email (so we can confirm)
-      <input type="email" name="email" required />
+    <label class="form-field">
+      <span class="label-text">Email</span>
+      <input type="email" name="email" placeholder="you@example.com" required />
     </label>
+  </div>
 
-    <fieldset>
-      <legend>Will you be attending?</legend>
-      <label><input type="radio" name="attending" value="Yes" required /> Yes 🎉</label>
-      <label><input type="radio" name="attending" value="No" /> No 😢</label>
-    </fieldset>
+  <fieldset class="form-field">
+    <legend class="label-text">Will you be attending?</legend>
+    <div class="choice-row">
+      <label class="choice-pill">
+        <input type="radio" name="attending" value="Yes" required />
+        <span>Yes 🎉</span>
+      </label>
+      <label class="choice-pill">
+        <input type="radio" name="attending" value="No" />
+        <span>No 😢</span>
+      </label>
+    </div>
+  </fieldset>
 
-    <label>
-      Number of guests (including you)
+  <div class="form-grid">
+    <label class="form-field">
+      <span class="label-text">Number of guests</span>
       <select name="guest_count" required>
         <option value="">Choose…</option>
         <option value="1">1</option>
@@ -30,8 +42,8 @@
       </select>
     </label>
 
-    <label>
-      Meal choice
+    <label class="form-field">
+      <span class="label-text">Meal choice</span>
       <select name="meal" required>
         <option value="">Choose one…</option>
         <option value="Chicken">Chicken</option>
@@ -39,25 +51,44 @@
         <option value="Vegetarian">Vegetarian</option>
       </select>
     </label>
+  </div>
 
-    <fieldset>
-      <legend>Dietary restrictions (if any)</legend>
-      <label><input type="checkbox" name="dietary" value="Gluten-free" /> Gluten-free</label>
-      <label><input type="checkbox" name="dietary" value="Dairy-free" /> Dairy-free</label>
-      <label><input type="checkbox" name="dietary" value="Nut allergy" /> Nut allergy</label>
-      <label><input type="checkbox" name="dietary" value="Other" /> Other</label>
-    </fieldset>
+  <fieldset class="form-field">
+    <legend class="label-text">Dietary restrictions (if any)</legend>
+    <div class="checkbox-grid">
+      <label class="check-chip">
+        <input type="checkbox" name="dietary" value="Gluten-free" />
+        <span>Gluten-free</span>
+      </label>
+      <label class="check-chip">
+        <input type="checkbox" name="dietary" value="Dairy-free" />
+        <span>Dairy-free</span>
+      </label>
+      <label class="check-chip">
+        <input type="checkbox" name="dietary" value="Nut allergy" />
+        <span>Nut allergy</span>
+      </label>
+      <label class="check-chip">
+        <input type="checkbox" name="dietary" value="Other" />
+        <span>Other</span>
+      </label>
+    </div>
+  </fieldset>
 
-    <label>
-      Notes / allergies / anything else?
-      <textarea name="notes" rows="3"></textarea>
-    </label>
+  <label class="form-field">
+    <span class="label-text">Notes / allergies / anything else?</span>
+    <textarea name="notes" rows="4" placeholder="Optional"></textarea>
+  </label>
 
-    <input type="text" name="_gotcha" style="display:none" />
+  <input type="text" name="_gotcha" style="display:none" />
 
-    <button type="submit">Send RSVP</button>
-    <p id="formStatus" class="form-hint"></p>
-  </form>
+  <button type="submit" class="submit-btn">
+    Send RSVP
+  </button>
+
+  <p id="formStatus" class="form-status" aria-live="polite"></p>
+</form>
+
 </section>
 
 <script>

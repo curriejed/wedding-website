@@ -126,57 +126,193 @@ body {
 
 .btn:hover { transform: translateY(-2px); }
 
+/* ---------- RSVP Form Upgrade ---------- */
+
 .rsvp-form {
   display: grid;
-  gap: 14px;
-  margin-top: 10px;
+  gap: 16px;
+  margin-top: 12px;
 }
 
+/* two-column on desktop, one-column on mobile */
+.form-grid {
+  display: grid;
+  gap: 14px;
+}
+@media (min-width: 720px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-field {
+  display: grid;
+  gap: 6px;
+}
+
+.label-text {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #eaeaea;
+}
+
+/* inputs */
 .rsvp-form input[type="text"],
 .rsvp-form input[type="email"],
 .rsvp-form select,
 .rsvp-form textarea {
   width: 100%;
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid #232838;
-  background: #0f1115;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid #2a3042;
+  background: #0e1117;
   color: #e6e6e6;
-  margin-top: 6px;
   font-size: 1rem;
+  outline: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
 }
 
+.rsvp-form textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.rsvp-form input::placeholder,
+.rsvp-form textarea::placeholder {
+  color: #8b92a6;
+}
+
+/* focus */
+.rsvp-form input:focus,
+.rsvp-form select:focus,
+.rsvp-form textarea:focus {
+  border-color: #9bb7ff;
+  box-shadow: 0 0 0 3px rgba(155,183,255,0.15);
+}
+
+/* fieldsets */
 .rsvp-form fieldset {
-  border: 1px solid #232838;
-  border-radius: 10px;
-  padding: 10px 12px;
+  border: 1px solid #2a3042;
+  border-radius: 14px;
+  padding: 12px;
   display: grid;
-  gap: 6px;
+  gap: 10px;
 }
 
-.rsvp-form legend {
+/* radio pills */
+.choice-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.choice-pill {
+  position: relative;
+  cursor: pointer;
+}
+
+.choice-pill input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+}
+
+.choice-pill span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid #2a3042;
+  background: #111521;
   font-weight: 700;
-  padding: 0 6px;
+  transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
 }
 
-.rsvp-form button {
+.choice-pill:hover span {
+  transform: translateY(-1px);
+  border-color: #44507a;
+}
+
+.choice-pill input:checked + span {
+  border-color: #9bb7ff;
+  background: rgba(155,183,255,0.12);
+  box-shadow: 0 0 0 3px rgba(155,183,255,0.12);
+}
+
+/* checkbox chips */
+.checkbox-grid {
+  display: grid;
+  gap: 8px;
+}
+@media (min-width: 720px) {
+  .checkbox-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.check-chip {
+  position: relative;
+  cursor: pointer;
+}
+
+.check-chip input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+}
+
+.check-chip span {
+  display: block;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid #2a3042;
+  background: #101525;
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.check-chip:hover span {
+  border-color: #44507a;
+}
+
+.check-chip input:checked + span {
+  border-color: #9bb7ff;
+  background: rgba(155,183,255,0.12);
+}
+
+/* submit button */
+.submit-btn {
   padding: 12px 16px;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   background: #9bb7ff;
-  color: #0f1115;
-  font-weight: 800;
+  color: #0b0d12;
+  font-weight: 900;
+  font-size: 1.05rem;
   cursor: pointer;
-  font-size: 1rem;
+  transition: transform 120ms ease, filter 120ms ease;
 }
 
-.rsvp-form button:hover {
-  filter: brightness(1.05);
+.submit-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
 }
 
-.form-hint {
-  color: #aaa;
-  font-size: 0.9rem;
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* status text */
+.form-status {
   margin: 0;
+  font-size: 0.95rem;
+  color: #aab0c0;
 }
 
+.form-status.success {
+  color: #8ee6b8;
+}
+
+.form-status.error {
+  color: #ffb3b3;
+}
