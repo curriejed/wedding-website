@@ -1,38 +1,94 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RSVP - Jed & Lauren's Wedding</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<section id="rsvp" class="card">
+  <h2>RSVP</h2>
+  <p>Please RSVP by <strong>[insert date]</strong>. We can’t wait to celebrate with you!</p>
 
-  <body>
-    <header class="site-header">
-      <h1>Jed & Lauren's Wedding</h1>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="rsvp.html">RSVP</a>
-        <a href="qanda.html">Q&A</a>
-      </nav>
-    </header>
+  <form id="rsvpForm" class="rsvp-form">
+    <label>
+      Your name
+      <input type="text" name="name" required />
+    </label>
 
-    <main class="container">
-      <section id="rsvp" class="card">
-        <h2>RSVP</h2>
-        <div class="form-wrapper">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScmgVlLfGH_wsXFvCAHJinkza33yxpMy3u-mCQaoWnlz3f3uw/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-        </div>
-      </section>
-    </main>
+    <label>
+      Email (so we can confirm)
+      <input type="email" name="email" required />
+    </label>
 
-    <footer class="footer">
-      <p>© <span id="year"></span> Jed Currie</p>
-    </footer>
+    <fieldset>
+      <legend>Will you be attending?</legend>
+      <label><input type="radio" name="attending" value="Yes" required /> Yes 🎉</label>
+      <label><input type="radio" name="attending" value="No" /> No 😢</label>
+    </fieldset>
 
-    <script>
-      // auto-update year
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-  </body>
-</html>
+    <label>
+      Number of guests (including you)
+      <select name="guest_count" required>
+        <option value="">Choose…</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    </label>
+
+    <label>
+      Meal choice
+      <select name="meal" required>
+        <option value="">Choose one…</option>
+        <option value="Chicken">Chicken</option>
+        <option value="Beef">Beef</option>
+        <option value="Vegetarian">Vegetarian</option>
+      </select>
+    </label>
+
+    <fieldset>
+      <legend>Dietary restrictions (if any)</legend>
+      <label><input type="checkbox" name="dietary" value="Gluten-free" /> Gluten-free</label>
+      <label><input type="checkbox" name="dietary" value="Dairy-free" /> Dairy-free</label>
+      <label><input type="checkbox" name="dietary" value="Nut allergy" /> Nut allergy</label>
+      <label><input type="checkbox" name="dietary" value="Other" /> Other</label>
+    </fieldset>
+
+    <label>
+      Notes / allergies / anything else?
+      <textarea name="notes" rows="3"></textarea>
+    </label>
+
+    <input type="text" name="_gotcha" style="display:none" />
+
+    <button type="submit">Send RSVP</button>
+    <p id="formStatus" class="form-hint"></p>
+  </form>
+</section>
+
+<script>
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxRxJ0TxnBKGnUy7KaoM9x5GEcI7jM13agrjzR8HR8G8SVcU8SWC1Q8lQXOSzo8knP-/exec";
+  const form = document.getElementById("rsvpForm");
+  const statusEl = document.getElementById("formStatus");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    statusEl.textContent = "Sending…";
+
+    try {
+      const formData = new FormData(form);
+
+      const res = await fetch(SCRIPT_URL, {
+        method: "POST",
+        body: formData,
+      });
+
+      const text = await res.text();
+      // If response isn't JSON for some reason, still treat as success if HTTP ok
+      if (res.ok) {
+        statusEl.textContent = "Thanks! Your RSVP has been recorded ❤️";
+        form.reset();
+      } else {
+        statusEl.textContent = "Hmm—something went wrong. Please try again.";
+        console.error(text);
+      }
+    } catch (err) {
+      statusEl.textContent = "Network error—please try again.";
+      console.error(err);
+    }
+  });
+</script>

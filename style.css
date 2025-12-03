@@ -1,25 +1,41 @@
 /* Simple clean styling */
 * { box-sizing: border-box; }
 
+:root {
+  --bg: #ffffff;
+  --text: #6b0000; /* warm dark red */
+  --header-bg: #0b6623; /* forest green */
+  --header-accent: #095219; /* darker green */
+  --header-text: #fffdf8; /* soft white for header */
+  --accent: #b30000; /* bright red accent */
+  --card-bg: #ffffff;
+  --card-border: rgba(179,0,0,0.10);
+  --muted: #f7f7f7; /* subtle off-white for form wrapper */
+  --shadow: 0 8px 24px rgba(15,15,15,0.06);
+}
+
 body {
   margin: 0;
   font-family: system-ui, Arial, sans-serif;
-  background: #fff3b0; /* light yellow */
-  color: #7f0000; /* dark red text */
+  background: var(--bg);
+  color: var(--text);
   line-height: 1.6;
+  -webkit-font-smoothing:antialiased;
 }
 
 .site-header {
   padding: 48px 20px;
   text-align: center;
-  background: #7f0000; /* dark red */
-  border-bottom: 1px solid #b30000; /* bright red accent */
+  background: linear-gradient(180deg, var(--header-bg), var(--header-accent));
+  border-bottom: 1px solid rgba(9,82,25,0.9);
 }
 
 .site-header h1 {
   margin: 0 0 8px;
   font-size: 2.4rem;
-  color: #fff3b0; /* yellow on red header */
+  color: var(--header-text);
+  font-weight: 600;
+  letter-spacing: 0.2px;
 }
 
 .nav {
@@ -27,40 +43,45 @@ body {
 }
 
 .nav a {
-  color: #fff3b0; /* yellow links */
+  color: var(--header-text);
   text-decoration: none;
-  margin: 0 10px;
+  margin: 0 12px;
   font-weight: 600;
+  transition: color 160ms ease, transform 160ms ease;
 }
 
 .nav a:hover {
-  text-decoration: underline;
+  color: #e6f7ea;
+  transform: translateY(-1px);
 }
 
 .container {
-  max-width: 900px;
+  max-width: 980px;
   margin: 0 auto;
-  padding: 24px 16px 60px;
+  padding: 28px 20px 72px;
   display: grid;
-  gap: 16px;
+  gap: 20px;
 }
 
 .card {
-  background: #fff3b0; /* yellow card background */
-  border: 1px solid #b30000; /* red border */
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 14px;
-  padding: 18px 18px;
+  padding: 22px;
+  box-shadow: var(--shadow);
 }
 
 .card h2 {
   margin-top: 0;
-  color: #7f0000; /* red heading */
+  color: var(--text);
+  font-size: 1.3rem;
 }
 
 .form-wrapper {
   overflow: hidden;
-  border-radius: 8px;
-  background: #fff3b0;
+  border-radius: 10px;
+  background: var(--muted);
+  padding: 12px;
 }
 
 .form-wrapper iframe {
@@ -68,19 +89,94 @@ body {
   min-height: 700px;
   display: block;
   border: none;
+  border-radius: 6px;
+  background: #fff; /* ensure inner form area appears clean */
 }
 
 .card iframe {
   width: 100%;
   display: block;
   margin: 0 auto;
-  border: 2px solid #b30000; /* subtle red frame */
-  border-radius: 8px;
+  border: none;
+  border-radius: 6px;
 }
 
 .footer {
   text-align: center;
   padding: 20px;
-  color: #7f0000;
-  border-top: 1px solid #b30000;
+  color: var(--text);
+  border-top: 1px solid rgba(179,0,0,0.08);
 }
+
+/* Small utility tweaks */
+.card p, .card li {
+  color: #3a0a0a;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(179,0,0,0.12);
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.rsvp-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.rsvp-form input[type="text"],
+.rsvp-form input[type="email"],
+.rsvp-form select,
+.rsvp-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #232838;
+  background: #0f1115;
+  color: #e6e6e6;
+  margin-top: 6px;
+  font-size: 1rem;
+}
+
+.rsvp-form fieldset {
+  border: 1px solid #232838;
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: grid;
+  gap: 6px;
+}
+
+.rsvp-form legend {
+  font-weight: 700;
+  padding: 0 6px;
+}
+
+.rsvp-form button {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 12px;
+  background: #9bb7ff;
+  color: #0f1115;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.rsvp-form button:hover {
+  filter: brightness(1.05);
+}
+
+.form-hint {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
