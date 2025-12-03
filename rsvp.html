@@ -52,18 +52,6 @@
     </div>
   </fieldset>
 
-  <div class="form-grid">
-    <label class="form-field">
-      <span class="label-text">Number of guests</span>
-      <select name="guest_count" required>
-        <option value="">Choose…</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-      </select>
-    </label>
-
     <label class="form-field">
       <span class="label-text">Meal choice</span>
       <select name="meal" required>
@@ -75,29 +63,7 @@
     </label>
   </div>
 
-  <fieldset class="form-field">
-    <legend class="label-text">Dietary restrictions (if any)</legend>
-    <div class="checkbox-grid">
-      <label class="check-chip">
-        <input type="checkbox" name="dietary" value="Gluten-free" />
-        <span>Gluten-free</span>
-      </label>
-      <label class="check-chip">
-        <input type="checkbox" name="dietary" value="Dairy-free" />
-        <span>Dairy-free</span>
-      </label>
-      <label class="check-chip">
-        <input type="checkbox" name="dietary" value="Nut allergy" />
-        <span>Nut allergy</span>
-      </label>
-      <label class="check-chip">
-        <input type="checkbox" name="dietary" value="Other" />
-        <span>Other</span>
-      </label>
-    </div>
-  </fieldset>
-
-  <label class="form-field">
+   <label class="form-field">
     <span class="label-text">Notes / allergies / anything else?</span>
     <textarea name="notes" rows="4" placeholder="Optional"></textarea>
   </label>
@@ -133,7 +99,7 @@
       const text = await res.text();
       // If response isn't JSON for some reason, still treat as success if HTTP ok
       if (res.ok) {
-        statusEl.textContent = "Thanks! Your RSVP has been recorded ❤️";
+        statusEl.textContent = "Thanks! Your RSVP has been recorded";
         form.reset();
       } else {
         statusEl.textContent = "Hmm—something went wrong. Please try again.";
