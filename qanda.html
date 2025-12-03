@@ -1,5 +1,36 @@
-<nav class="nav">
-    <a href="index.html">Home</a>
-    <a href="rsvp.html">RSVP</a>
-    <a href="qanda.html">Q&A</a>
-</nav>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Q&A - Jed & Lauren's Wedding</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <h1>Jed & Lauren's Wedding</h1>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="qanda.html">Q&A</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section id="qanda" class="card">
+        <h2>Questions & Answers</h2>
+        <p>Add your Q&A content here</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Jed Currie</p>
+    </footer>
+
+    <script>
+      // auto-update year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
