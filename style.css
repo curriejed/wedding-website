@@ -10,7 +10,7 @@
   --accent: #b30000; /* bright red accent */
   --card-bg: #ffffff;
   --card-border: rgba(179,0,0,0.10);
-  --muted: #f7f7f7; /* subtle off-white for form wrapper */
+  --muted: #f7f7f7; /* subtle off-white */
   --shadow: 0 8px 24px rgba(15,15,15,0.06);
 }
 
@@ -20,7 +20,7 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
-  -webkit-font-smoothing:antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 
 .site-header {
@@ -90,7 +90,7 @@ body {
   display: block;
   border: none;
   border-radius: 6px;
-  background: #fff; /* ensure inner form area appears clean */
+  background: #fff;
 }
 
 .card iframe {
@@ -126,7 +126,8 @@ body {
 
 .btn:hover { transform: translateY(-2px); }
 
-/* ---------- RSVP Form Upgrade ---------- */
+
+/* ---------- RSVP Form Upgrade (LIGHT THEME) ---------- */
 
 .rsvp-form {
   display: grid;
@@ -153,7 +154,7 @@ body {
 .label-text {
   font-weight: 700;
   letter-spacing: 0.2px;
-  color: #eaeaea;
+  color: var(--text);
 }
 
 /* inputs */
@@ -164,12 +165,12 @@ body {
   width: 100%;
   padding: 11px 12px;
   border-radius: 12px;
-  border: 1px solid #2a3042;
-  background: #0e1117;
-  color: #e6e6e6;
+  border: 1px solid var(--card-border);
+  background: #fff;
+  color: var(--text);
   font-size: 1rem;
   outline: none;
-  transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
 }
 
 .rsvp-form textarea {
@@ -179,24 +180,25 @@ body {
 
 .rsvp-form input::placeholder,
 .rsvp-form textarea::placeholder {
-  color: #8b92a6;
+  color: #a66;
 }
 
 /* focus */
 .rsvp-form input:focus,
 .rsvp-form select:focus,
 .rsvp-form textarea:focus {
-  border-color: #9bb7ff;
-  box-shadow: 0 0 0 3px rgba(155,183,255,0.15);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(179, 0, 0, 0.12);
 }
 
 /* fieldsets */
 .rsvp-form fieldset {
-  border: 1px solid #2a3042;
+  border: 1px solid var(--card-border);
   border-radius: 14px;
   padding: 12px;
   display: grid;
   gap: 10px;
+  background: var(--muted);
 }
 
 /* radio pills */
@@ -223,21 +225,22 @@ body {
   gap: 8px;
   padding: 10px 14px;
   border-radius: 999px;
-  border: 1px solid #2a3042;
-  background: #111521;
+  border: 1px solid var(--card-border);
+  background: #fff;
   font-weight: 700;
+  color: var(--text);
   transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
 }
 
 .choice-pill:hover span {
   transform: translateY(-1px);
-  border-color: #44507a;
+  border-color: var(--accent);
 }
 
 .choice-pill input:checked + span {
-  border-color: #9bb7ff;
-  background: rgba(155,183,255,0.12);
-  box-shadow: 0 0 0 3px rgba(155,183,255,0.12);
+  border-color: var(--accent);
+  background: rgba(179, 0, 0, 0.08);
+  box-shadow: 0 0 0 3px rgba(179, 0, 0, 0.10);
 }
 
 /* checkbox chips */
@@ -266,18 +269,19 @@ body {
   display: block;
   padding: 9px 12px;
   border-radius: 10px;
-  border: 1px solid #2a3042;
-  background: #101525;
+  border: 1px solid var(--card-border);
+  background: #fff;
+  color: var(--text);
   transition: border-color 120ms ease, background 120ms ease;
 }
 
 .check-chip:hover span {
-  border-color: #44507a;
+  border-color: var(--accent);
 }
 
 .check-chip input:checked + span {
-  border-color: #9bb7ff;
-  background: rgba(155,183,255,0.12);
+  border-color: var(--accent);
+  background: rgba(179, 0, 0, 0.08);
 }
 
 /* submit button */
@@ -285,12 +289,13 @@ body {
   padding: 12px 16px;
   border: none;
   border-radius: 14px;
-  background: #9bb7ff;
-  color: #0b0d12;
+  background: var(--accent);
+  color: #fff;
   font-weight: 900;
   font-size: 1.05rem;
   cursor: pointer;
   transition: transform 120ms ease, filter 120ms ease;
+  box-shadow: 0 6px 18px rgba(179,0,0,0.12);
 }
 
 .submit-btn:hover {
@@ -306,13 +311,15 @@ body {
 .form-status {
   margin: 0;
   font-size: 0.95rem;
-  color: #aab0c0;
+  color: #7a1f1f;
 }
 
 .form-status.success {
-  color: #8ee6b8;
+  color: var(--header-bg);
+  font-weight: 700;
 }
 
 .form-status.error {
-  color: #ffb3b3;
+  color: var(--accent);
+  font-weight: 700;
 }
