@@ -4,21 +4,22 @@
 body {
   margin: 0;
   font-family: system-ui, Arial, sans-serif;
-  background: #0f1115;
-  color: #e6e6e6;
+  background: #fff3b0; /* light yellow */
+  color: #7f0000; /* dark red text */
   line-height: 1.6;
 }
 
 .site-header {
   padding: 48px 20px;
   text-align: center;
-  background: #151922;
-  border-bottom: 1px solid #232838;
+  background: #7f0000; /* dark red */
+  border-bottom: 1px solid #b30000; /* bright red accent */
 }
 
 .site-header h1 {
   margin: 0 0 8px;
   font-size: 2.4rem;
+  color: #fff3b0; /* yellow on red header */
 }
 
 .nav {
@@ -26,7 +27,7 @@ body {
 }
 
 .nav a {
-  color: #9bb7ff;
+  color: #fff3b0; /* yellow links */
   text-decoration: none;
   margin: 0 10px;
   font-weight: 600;
@@ -45,20 +46,21 @@ body {
 }
 
 .card {
-  background: #151922;
-  border: 1px solid #232838;
+  background: #fff3b0; /* yellow card background */
+  border: 1px solid #b30000; /* red border */
   border-radius: 14px;
   padding: 18px 18px;
 }
 
 .card h2 {
   margin-top: 0;
+  color: #7f0000; /* red heading */
 }
 
 .form-wrapper {
   overflow: hidden;
   border-radius: 8px;
-  background: #0f1115;
+  background: #fff3b0;
 }
 
 .form-wrapper iframe {
@@ -72,13 +74,13 @@ body {
   width: 100%;
   display: block;
   margin: 0 auto;
-  border: none;
+  border: 2px solid #b30000; /* subtle red frame */
   border-radius: 8px;
 }
 
 .footer {
   text-align: center;
   padding: 20px;
-  color: #aaa;
-  border-top: 1px solid #232838;
+  color: #7f0000;
+  border-top: 1px solid #b30000;
 }
