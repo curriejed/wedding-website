@@ -39,6 +39,7 @@ body {
   color: var(--header-text);
   font-weight: 600;
   letter-spacing: 0.2px;
+  text-transform: uppercase;
 }
 
 .nav {
@@ -51,12 +52,19 @@ body {
   margin: 0 12px;
   font-weight: 600;
   font-size: 1.2rem;
+  text-transform: uppercase;
   transition: color 160ms ease, transform 160ms ease;
 }
 
 .nav a:hover {
   color: #e6f7ea;
   transform: translateY(-1px);
+}
+
+.nav a.active {
+  color: #e6f7ea;
+  text-decoration: underline;
+  font-weight: 700;
 }
 
 .container {
@@ -143,6 +151,32 @@ body {
   height: auto;
   border-radius: 8px;
   box-shadow: var(--shadow);
+}
+
+/* Q&A styling */
+.qa-container {
+  display: grid;
+  gap: 20px;
+}
+
+.qa-pair {
+  background: var(--muted);
+  border-radius: 12px;
+  padding: 16px;
+  border-left: 4px solid var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.question {
+  margin: 0 0 8px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.answer {
+  margin: 0;
+  color: #000000;
+  line-height: 1.5;
 }
 
 
