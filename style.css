@@ -3,11 +3,11 @@
 
 :root {
   --bg: #ffffff;
-  --text: #6b0000; /* warm dark red */
-  --header-bg: #0b6623; /* forest green */
-  --header-accent: #095219; /* darker green */
-  --header-text: #fffdf8; /* soft white for header */
-  --accent: #b30000; /* bright red accent */
+  --text: #264d00; /* warm dark red */
+  --header-bg: #000000; /* olive green */
+  --header-accent: #000000; /* darker olive */
+  --header-text: #ffffff; /* cream for contrast */
+  --accent: #000000; /* bright red accent */
   --card-bg: #ffffff;
   --card-border: rgba(179,0,0,0.10);
   --muted: #f7f7f7; /* subtle off-white */
@@ -28,11 +28,14 @@ body {
   text-align: center;
   background: linear-gradient(180deg, var(--header-bg), var(--header-accent));
   border-bottom: 1px solid rgba(9,82,25,0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .site-header h1 {
   margin: 0 0 8px;
-  font-size: 2.4rem;
+  font-size: 3.4rem;
   color: var(--header-text);
   font-weight: 600;
   letter-spacing: 0.2px;
@@ -47,6 +50,7 @@ body {
   text-decoration: none;
   margin: 0 12px;
   font-weight: 600;
+  font-size: 1.2rem;
   transition: color 160ms ease, transform 160ms ease;
 }
 
@@ -73,7 +77,7 @@ body {
 
 .card h2 {
   margin-top: 0;
-  color: var(--text);
+  color: #000000;
   font-size: 1.3rem;
 }
 
@@ -110,7 +114,7 @@ body {
 
 /* Small utility tweaks */
 .card p, .card li {
-  color: #3a0a0a;
+  color: #000000;
 }
 
 .btn {
@@ -125,6 +129,21 @@ body {
 }
 
 .btn:hover { transform: translateY(-2px); }
+
+/* Photo grid for home page */
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.wedding-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
 
 
 /* ---------- RSVP Form Upgrade (LIGHT THEME) ---------- */
@@ -154,7 +173,7 @@ body {
 .label-text {
   font-weight: 700;
   letter-spacing: 0.2px;
-  color: var(--text);
+  color: #000000;
 }
 
 /* inputs */
@@ -167,7 +186,7 @@ body {
   border-radius: 12px;
   border: 1px solid var(--card-border);
   background: #fff;
-  color: var(--text);
+  color: #000000;
   font-size: 1rem;
   outline: none;
   transition: border-color 120ms ease, box-shadow 120ms ease;
@@ -180,7 +199,7 @@ body {
 
 .rsvp-form input::placeholder,
 .rsvp-form textarea::placeholder {
-  color: #a66;
+  color: #000000;
 }
 
 /* focus */
@@ -193,12 +212,12 @@ body {
 
 /* fieldsets */
 .rsvp-form fieldset {
-  border: 1px solid var(--card-border);
-  border-radius: 14px;
-  padding: 12px;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   display: grid;
   gap: 10px;
-  background: var(--muted);
+  background: transparent;
 }
 
 /* radio pills */
@@ -228,7 +247,7 @@ body {
   border: 1px solid var(--card-border);
   background: #fff;
   font-weight: 700;
-  color: var(--text);
+  color: #000000;
   transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
 }
 

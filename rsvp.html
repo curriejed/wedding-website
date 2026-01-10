@@ -11,7 +11,6 @@
 
 <header class="site-header">
       <h1>Jed & Lauren's Wedding</h1>
-      <p></p>
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="rsvp.html">RSVP</a>
@@ -22,50 +21,55 @@
 
 <section id="rsvp" class="card">
   <h2>RSVP</h2>
-  <p>Please RSVP by <strong>[insert date]</strong>. We can’t wait to celebrate with you!</p>
+  <p>Please RSVP by <strong>April 1st, 2026</strong></p>
 
   
   <form id="rsvpForm" class="rsvp-form">
   <div class="form-grid">
     <label class="form-field">
-      <span class="label-text">Your name</span>
-      <input type="text" name="name" placeholder="Full name" required />
+      <span class="label-text">Name</span>
+      <input type="text" name="name" required />
     </label>
 
-    <label class="form-field">
-      <span class="label-text">Email</span>
-      <input type="email" name="email" placeholder="you@example.com" required />
-    </label>
+    <fieldset class="form-field">
+      <legend class="label-text">Will you be attending?</legend>
+      <div class="choice-row">
+        <label class="choice-pill">
+          <input type="radio" name="attending" value="Yes" required />
+          <span>Yes 🎉</span>
+        </label>
+        <label class="choice-pill">
+          <input type="radio" name="attending" value="No" />
+          <span>No 😢</span>
+        </label>
+      </div>
+    </fieldset>
   </div>
 
-  <fieldset class="form-field">
-    <legend class="label-text">Will you be attending?</legend>
-    <div class="choice-row">
-      <label class="choice-pill">
-        <input type="radio" name="attending" value="Yes" required />
-        <span>Yes 🎉</span>
-      </label>
-      <label class="choice-pill">
-        <input type="radio" name="attending" value="No" />
-        <span>No 😢</span>
-      </label>
-    </div>
-  </fieldset>
+  <div class="form-grid">
+    <label class="form-field">
+      <span class="label-text">First Course: Appetizers</span>
+      <select name="appetizer" required>
+        <option value="">Choose one…</option>
+        <option value="LaLa Salad">LALA SALAD: A seasonal blend featuring roasted honeynut squash, crunchy pumpkin seeds, and a bright sherry vinaigrette.</option>
+        <option value="Caesar Salad">CAESAR SALAD: A classic preparation elevated with smoky lardons (pork fat cubes), house-made croutons, and savory Grana Padano cheese.</option>
+      </select>
+    </label>
 
     <label class="form-field">
-      <span class="label-text">Meal choice</span>
-      <select name="meal" required>
+      <span class="label-text">Second Course: Mains</span>
+      <select name="main" required>
         <option value="">Choose one…</option>
-        <option value="Chicken">Chicken</option>
-        <option value="Beef">Beef</option>
-        <option value="Vegetarian">Vegetarian</option>
+        <option value="LaLa Burger">LALA BURGER: A hearty 8oz. beef patty topped with bacon, sweet onion jam, local Gunn's Hill 5 Brothers cheese, and peppery arugula. Served with a choice of crispy frites or a side LaLa salad.</option>
+        <option value="Chicken Supreme">CHICKEN SUPREME: A refined poultry dish accompanied by carrot, a savory crueller, rich brown butter, and a fragrant ginger jus.</option>
+        <option value="Thai Red Curry">THAI RED CURRY: A vegetarian-friendly option featuring a mix of foraged and farmed vegetables, served with crispy rice and fresh coriander.</option>
       </select>
     </label>
   </div>
 
    <label class="form-field">
-    <span class="label-text">Notes / allergies / anything else?</span>
-    <textarea name="notes" rows="4" placeholder="Optional"></textarea>
+    <span class="label-text">Notes / anything else?</span>
+    <textarea name="notes" rows="4"></textarea>
   </label>
 
   <input type="text" name="_gotcha" style="display:none" />
@@ -80,7 +84,7 @@
 </section>
 
 <script>
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxRxJ0TxnBKGnUy7KaoM9x5GEcI7jM13agrjzR8HR8G8SVcU8SWC1Q8lQXOSzo8knP-/exec";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwvSaIpRPoxb_psVw6Y1-YyDW2wXtuqbOdQoDhJpM8ZugfNtSCA9bJW7hEfmxDQIHoc/exec";
   const form = document.getElementById("rsvpForm");
   const statusEl = document.getElementById("formStatus");
 
